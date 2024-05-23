@@ -27,6 +27,7 @@ public:
     }
 };
 
+// O(NlogN) solution (Sorting)
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
