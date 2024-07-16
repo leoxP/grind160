@@ -34,3 +34,27 @@ public:
 };
 
 //TC=O(N) SC=O(1)
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if(!head) return head;
+
+        ListNode* temp=head;
+        int count=1;
+        while(temp->next){
+            temp=temp->next;
+            count+=1;
+        }
+        temp->next=head;
+        k%=count;
+
+        int steps=count-k-1; //location of new tail
+        temp=head;
+        while(steps--){
+            temp=temp->next;
+        }
+        ListNode* newhead=temp->next; //location of new head;
+        temp->next=nullptr;
+        return newhead;
+    }
+};
